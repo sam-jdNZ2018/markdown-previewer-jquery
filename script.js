@@ -1,6 +1,6 @@
 const OPTIONS = { breaks: true };
 const placeholder =
-`# Welcome to my React Markdown Previewer!
+  `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
 ### And here's some other cool stuff:
@@ -47,6 +47,34 @@ And here. | Okay. | I think we get it.
 ![React Logo w/ Text](https://goo.gl/Umyytc)
 `;
 
-$(document).ready(function(){
-  $("#editor").css("background-color","blue");
+$(document).ready(function () {
+  let markdown = placeholder;
+  let view = "stack";
+  let disabledView = false;
+
+  function convert(){
+    return marked(markdown);
+  }
+
+  function switchView() {
+    if (view == "stack") {
+      view = "aside";
+      $("#app-inner").css({ "display": "grid", "grid-template-rows": "auto",
+      "grid-template-columns": "auto 1fr","grid-row-gap": "0px",
+      "grid-column-gap": "10px" });
+      $("#editor-outer").css({ "height": "100%", "width": "100%" });
+      $("#preview-outer").css({ "height": "100%", "width": "100%" });
+    }
+    else {
+      view = "stack";
+      $("#app-inner").css({ "display": "grid", "grid-template-rows": "1fr 1fr", 
+      "grid-template-columns": "auto", "grid-row-gap": "20px",
+      "grid-column-gap": "0px" });
+      $("#editor-outer").css({ "height": "auto", "width": "auto" });
+      $("#preview-outer").css({ "height": "auto", "width": "auto" });
+    }
+  }
+
+  $("#view-switch").click(switchView);
+  $("#preview").html(convert(markdown));
 });
