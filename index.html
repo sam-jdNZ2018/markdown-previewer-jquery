@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Markdown Previewer React</title>
@@ -8,12 +9,31 @@
   <link rel="stylesheet" href="./style.css">
   <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.8.6/umd/react.production.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/umd/react-dom.production.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.2/marked.min.js'></script>
 </head>
+
 <body>
-<div id="main"></div>
-<script  src="./script.js"></script>
+  <div id="main">
+    <div id="app-outer">
+      <h1 id="title">Markdown Previewer</h1>
+      <div id="button-div">
+        <button type="button">Switch Views</button>
+        <button type="button">Clear Editor</button>
+      </div>
+      <div id="app-inner">
+        <div id="editor-outer">
+          <h2>Editor</h2>
+          <textarea id="editor"></textarea>
+        </div>
+        <div id="preview-outer">
+          <h2>Previewer</h2>
+          <div id="preview">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
 </body>
+
 </html>
