@@ -50,10 +50,18 @@ And here. | Okay. | I think we get it.
 $(document).ready(function () {
   let markdown = placeholder;
   let view = "stack";
-  let disabledView = false;
 
   function handleResize(e) {
-
+    let width = e.target.innerWidth;
+    let height = e.target.innerHeight;
+    if(e.target.innerWidth < 800){
+      view = "stack";
+      makeStack();
+      $("#view-switch").attr("disabled",true);
+    }
+    else{
+      $("#view-switch").attr("disabled",false);
+    }
   }
 
   function handleInput(e) {
@@ -70,22 +78,26 @@ $(document).ready(function () {
       view = "aside";
       $("#app-inner").css({
         "display": "grid", "grid-template-rows": "auto",
-        "grid-template-columns": "auto 1fr", "grid-row-gap": "0px",
+        "grid-template-columns": "1fr 1fr", "grid-row-gap": "0px",
         "grid-column-gap": "10px"
       });
       $("#editor-outer").css({ "height": "100%", "width": "100%" });
       $("#preview-outer").css({ "height": "100%", "width": "100%" });
     }
     else {
-      view = "stack";
-      $("#app-inner").css({
-        "display": "grid", "grid-template-rows": "auto 1fr",
-        "grid-template-columns": "auto", "grid-row-gap": "20px",
-        "grid-column-gap": "0px"
-      });
-      $("#editor-outer").css({ "height": "100%", "width": "100%" });
-      $("#preview-outer").css({ "height": "100%", "width": "100%" });
+      makeStack();
     }
+  }
+
+  function makeStack(){
+    view = "stack";
+    $("#app-inner").css({
+      "display": "grid", "grid-template-rows": "auto 1fr",
+      "grid-template-columns": "auto", "grid-row-gap": "20px",
+      "grid-column-gap": "0px"
+    });
+    $("#editor-outer").css({ "height": "100%", "width": "100%" });
+    $("#preview-outer").css({ "height": "100%", "width": "100%" });
   }
 
   function clearEditor() {
@@ -93,7 +105,7 @@ $(document).ready(function () {
     $("#editor").val(markdown);
     $("#preview").empty();
   }
-
+$(window).on("resize", handleResize);
   $("#editor").on("input",handleInput);
   $("#clear").click(clearEditor);
   $("#view-switch").click(switchView);
