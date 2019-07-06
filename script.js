@@ -52,29 +52,52 @@ $(document).ready(function () {
   let view = "stack";
   let disabledView = false;
 
-  function convert(){
-    return marked(markdown);
+  function handleResize(e) {
+
+  }
+
+  function handleInput(e) {
+    markdown = e.target.value;
+    convertMarkdown();
+  }
+
+  function convertMarkdown() {
+    $("#preview").html(marked(markdown));
   }
 
   function switchView() {
     if (view == "stack") {
       view = "aside";
-      $("#app-inner").css({ "display": "grid", "grid-template-rows": "auto",
-      "grid-template-columns": "auto 1fr","grid-row-gap": "0px",
-      "grid-column-gap": "10px" });
+      $("#app-inner").css({
+        "display": "grid", "grid-template-rows": "auto",
+        "grid-template-columns": "auto 1fr", "grid-row-gap": "0px",
+        "grid-column-gap": "10px"
+      });
       $("#editor-outer").css({ "height": "100%", "width": "100%" });
       $("#preview-outer").css({ "height": "100%", "width": "100%" });
     }
     else {
       view = "stack";
-      $("#app-inner").css({ "display": "grid", "grid-template-rows": "1fr 1fr", 
-      "grid-template-columns": "auto", "grid-row-gap": "20px",
-      "grid-column-gap": "0px" });
-      $("#editor-outer").css({ "height": "auto", "width": "auto" });
-      $("#preview-outer").css({ "height": "auto", "width": "auto" });
+      $("#app-inner").css({
+        "display": "grid", "grid-template-rows": "auto 1fr",
+        "grid-template-columns": "auto", "grid-row-gap": "20px",
+        "grid-column-gap": "0px"
+      });
+      $("#editor-outer").css({ "height": "100%", "width": "100%" });
+      $("#preview-outer").css({ "height": "100%", "width": "100%" });
     }
   }
 
+  function clearEditor() {
+    markdown = "";
+    $("#editor").val(markdown);
+    $("#preview").empty();
+  }
+
+  $("#editor").on("input",handleInput);
+  $("#clear").click(clearEditor);
   $("#view-switch").click(switchView);
-  $("#preview").html(convert(markdown));
-});
+  $("#editor").val(markdown);
+  convertMarkdown();
+}
+);
