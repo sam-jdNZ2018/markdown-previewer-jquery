@@ -11,9 +11,7 @@ FreeCodeCamp's curriculum. This version was made as a way to learn how to code i
 Built using:
 * HTML, CSS, JavaScript
 * Marked.js (A library for parsing markdown)
-* React 16.8.6
-* React-dom 16.8.6
-* create-react-app (For allowing code to be written in Babel)
+* jQuery 3.4.1 
 
 ## Relevant Links
 
