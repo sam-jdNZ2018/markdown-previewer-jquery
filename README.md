@@ -1,4 +1,7 @@
 # JQuery Markdown Previewer
+
+Viewable at [this link](https://sam-jdnz2018.github.io/markdown-previewer-jquery/).
+
 This project is a jQuery interpretation of the 'Build a Markdown Previewer' project from the 'Front-End Libraries' section of 
 FreeCodeCamp's curriculum. This version was made as a way to learn how to code in jQuery and was built of a React version I made earlier.
 
