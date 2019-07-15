@@ -18,5 +18,5 @@ Built using:
 
 ## Relevant Links
 
-* [React version](https://github.com/sam-jdNZ2018/markdown-previewer-react)
-* [FreeCodeCamp design document](https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer)
+* [React Version Repository](https://github.com/sam-jdNZ2018/markdown-previewer-react)
+* [FreeCodeCamp Design Document](https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer)
