@@ -46,7 +46,7 @@ And here. | Okay. | I think we get it.
 
 ![React Logo w/ Text](https://goo.gl/Umyytc)
 `;
-
+marked.setOptions(OPTIONS);
 $(document).ready(function () {
   let markdown = placeholder;
   let view = "stack";
